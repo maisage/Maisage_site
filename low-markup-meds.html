@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4A7C59">
+  <meta name="description" content="Maisage helps you find medications with the lowest markup margins—transparent prices without coupon games.">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <title>Low-Markup Medications – Find Real Prices | Maisage</title>
+  <style>
+    .pill{display:inline-block;padding:.25rem .6rem;border-radius:999px;border:1px solid #cfe0d1;background:#f4f8f5;font-size:.8rem}
+    .note{background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:1rem;margin:1rem 0}
+    .grid{display:grid;gap:1rem}
+    .two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .list-tight li{margin:.35rem 0}
+    .form-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1rem;box-shadow:0 10px 25px rgba(2,6,23,.05)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    label{display:block;font-weight:600;margin:.25rem 0}
+    input,textarea,select{width:100%;padding:.7rem .85rem;border:1px solid #e2e8f0;border-radius:12px;font:inherit}
+    .help{font-size:.9rem;color:#64748b}
+  </style>
+</head>
+<body>
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="index.html"><img src="assets/logo.png" alt=""><span>Maisage</span></a>
+    <nav class="menu" aria-label="Primary">
+      <a href="guides.html">Guides</a>
+      <a href="low-markup-meds.html" aria-current="page">Low-Markup Meds</a>
+      <a href="drug-cost-navigator.html">Drug Cost Navigator</a>
+      <a href="ask.html">Ask Maisage</a>
+      <a href="providers.html">Local Help</a>
+      <a href="advisor.html">Talk to an Advisor</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <article class="card">
+    <p class="small">Money</p>
+    <h1>Low-Markup Medications</h1>
+    <p class="lead">We help you pay closer to the real price—without coupon games or hidden spreads.</p>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>What we look for</h2>
+        <ul class="list-tight">
+          <li><span class="pill">Transparent cash prices</span> (PBM-free or clearly posted)</li>
+          <li><span class="pill">90-day mail & warehouse</span> unit-cost comparisons</li>
+          <li><span class="pill">Generics/equivalents</span> to avoid brand markups (with prescriber OK)</li>
+          <li><span class="pill">Manufacturer assistance</span> on select brand meds</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Quick method (5 steps)</h2>
+        <ol class="list-tight">
+          <li>List drug, strength, and quantity exactly.</li>
+          <li>Pull 2 local <strong>cash</strong> prices + 1 <strong>mail/warehouse</strong> price.</li>
+          <li>Ask prescriber about <strong>generic/therapeutic equivalent</strong>.</li>
+          <li>Pick the best reliable option; calendar a re-check.</li>
+          <li>Use Maisage to sanity-check or find a better path.</li>
+        </ol>
+      </section>
+    </div>
+
+    <!-- Netlify form -->
+    <section class="form-card" aria-labelledby="meds-form">
+      <h2 id="meds-form">Find the lowest-markup option for your medication</h2>
+      <p class="help">Non-medical guidance only. We’ll compare transparent cash, mail-order, and assistance options for your area.</p>
+
+      <form name="lowest-markup-meds" method="POST" data-netlify="true" action="/thanks.html" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="lowest-markup-meds">
+        <p class="hidden" style="display:none">
+          <label>Don’t fill this out: <input name="bot-field"></label>
+        </p>
+
+        <div class="form-row">
+          <p><label for="name">Your name</label><input id="name" name="name" required></p>
+          <p><label for="email">Email</label><input id="email" name="email" type="email" required></p>
+        </div>
+
+        <div class="form-row">
+          <p><label for="zip">ZIP code</label><input id="zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" placeholder="77002" required></p>
+          <p><label for="plan">Insurance plan (optional)</label><input id="plan" name="plan" placeholder="e.g., Medicare Part D, plan name"></p>
+        </div>
+
+        <div class="form-row-3">
+          <p><label for="drug">Medication</label><input id="drug" name="drug" placeholder="e.g., Atorvastatin" required></p>
+          <p><label for="strength">Strength</label><input id="strength" name="strength" placeholder="e.g., 20 mg" required></p>
+          <p><label for="qty">Quantity</label><input id="qty" name="qty" inputmode="numeric" placeholder="e.g., 90" required></p>
+        </div>
+
+        <div class="form-row">
+          <p><label for="best">Best price you’ve seen (optional)</label><input id="best" name="best" placeholder="$—"></p>
+          <p><label for="source">Where (optional)</label><input id="source" name="source" placeholder="Pharmacy or website"></p>
+        </div>
+
+        <p><label for="notes">Notes (optional)</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Timing, delivery, allergies, brand-only reasons, etc."></textarea></p>
+
+        <div class="actions" style="display:flex;gap:.75rem;align-items:center;margin-top:.75rem">
+          <button class="btn primary" type="submit">Get my low-markup options</button>
+          <span class="help">We usually reply within a business day.</span>
+        </div>
+
+        <p class="small" style="margin-top:.5rem">We provide non-medical information only and don’t sell your data. Confirm changes with your prescriber and pharmacist.</p>
+      </form>
+    </section>
+
+    <section class="note">
+      <h2>How Maisage stays neutral</h2>
+      <ul class="list-tight">
+        <li>No paid placement or referral commissions on this page</li>
+        <li>We publish what we verify and when we last checked it</li>
+        <li>Members help choose which markets we compare next</li>
+      </ul>
+    </section>
+
+    <p><a class="btn" href="drug-cost-navigator.html">Use Drug Cost Navigator</a> <a class="btn primary" href="ask.html">Ask Maisage</a></p>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div class="cols">
+      <div><strong>Maisage</strong><br><span class="small">Guidance you can trust. Care you can reach.</span></div>
+      <div class="small" style="text-align:right"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+    <div class="small" style="margin-top:.5rem">© 2025 Maisage · <a href="mailto:Samai@maisage.com">Samai@maisage.com</a></div>
+  </div>
+</footer>
+</body>
+</html>
